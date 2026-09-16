@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ok/ui/screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      home: CupertinoPageScaffold(
-        child: Center(child: Text("This is the first time with Flutter")),
-      ),
+    return MaterialApp(
+      home: const HomePage(),
     );
   }
 }
