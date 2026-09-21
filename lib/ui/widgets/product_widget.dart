@@ -2,45 +2,56 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../data/model/product.dart';
+
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({super.key});
+  const ProductWidget({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
-      height: 450,
+      decoration: BoxDecoration(
+        border: Border.all(style: BorderStyle.solid, color: Colors.pinkAccent),
+      ),
       child: Column(
         children: [
-          Expanded(
-            flex: 6,
-            child: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset("assets/images/img.png", fit: BoxFit.fill),
-            ),
-          ),
-          Expanded(flex: 8, child: Text("Name: ${Random().nextInt(3)}")),
-          Expanded(
-            flex: 1,
-            child: Row(
+          Container(
+            child: Stack(
               children: [
-                Text("Price: "),
-                Text(
-                  "${Random().nextInt(6)}\$",
-                  style: TextStyle(decoration: TextDecoration.lineThrough),
+                Image.asset(product.image ?? "Default", fit: BoxFit.contain),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.add_shopping_cart),
+                    color: Colors.white,
+                    hoverColor: Colors.orange,
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(
+                        Colors.pinkAccent,
+                      ),
+                    ),
+                  ),
                 ),
-                Text("${Random().nextInt(9)}\$"),
               ],
             ),
           ),
-          Expanded(
-            flex: 3,
-            child: Text(
-              "1234567890-09876544ee3567opoiuy09876544ee3567opoiuy1234567890-09876544ee3567opoiuy09876544ee3567opoiuy1234567890-09876544ee3567opoiuy09876544ee3567opoiuy1234567890-09876544ee3567opoiuy09876544ee3567opoiuy",
-              textAlign: TextAlign.justify,
-            ),
+          Text("Name: ${product.name}"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Price: "),
+              Text(
+                "${product.price}\$",
+                style: TextStyle(decoration: TextDecoration.lineThrough),
+              ),
+              Text("${product.price - Random().nextInt(36)}\$"),
+            ],
           ),
+          Text(product.description ?? "null", textAlign: TextAlign.justify),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ok/ui/widgets/product_widget.dart';
+import 'package:ok/ui/widgets/body_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         title: const Text("Home page"),
         actions: [TextButton(onPressed: () {}, child: Text("Login"))],
       ),
-      body: ProductWidget(),
+      body: BodyWidget(),
     );
   }
 }
