@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class Lab4DetailPage extends StatelessWidget {
+class Lab4Exercise1 extends StatelessWidget {
   final String title;
 
-  const Lab4DetailPage({super.key, required this.title});
+  const Lab4Exercise1({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

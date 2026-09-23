@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:ok/ui/screens/lab_4_detail_page.dart';
 
 class HomePageLab4ListItem extends StatelessWidget {
-  const HomePageLab4ListItem({super.key, required this.title});
+  const HomePageLab4ListItem({
+    super.key,
+    required this.title,
+    required this.destination,
+  });
 
   final String title;
+  final Widget destination;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class HomePageLab4ListItem extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Lab4DetailPage(title: title),
+              builder: (context) => destination,
             ),
           );
         },
